@@ -6,29 +6,33 @@ import { Switch } from "react-router";
 import IntroScene from "./IntroComponent/IntroScene";
 import Header from "./HeaderComponent/Header";
 
-import Footer from "./FooterComponent/Footer";
 import Chatbot from "./ChatbotComponent/Chatbot";
 
 import Progress from "./Progress";
 // Page Imports
 import Homepage from "./PageComponents/Homepage/Homepage";
+import Quantum from "./PageComponents/Quantum/Quantum";
 import Products from "./PageComponents/Branches/Branches";
 import Founder from "./PageComponents/Founder/Founder";
 import Board from "./PageComponents/Board/Board";
 import Story from "./PageComponents/Story/Story";
 
 // After login page imports
-import Integrety from "./PageComponents/CodeOfConduct/Integrety";
-import PrePannel from "./PageComponents/PrePannel/PrePannel";
+import Integrity from "./PageComponents/CodeOfConduct/Integrity";
+import PrePanel from "./PageComponents/PrePanel/prePannelComment";
 import NiceReads from "./PageComponents/NiceReads/NiceReads";
 import Profile from "./PageComponents/ProfilePage/Profile";
 import ProfileInformation from "./PageComponents/ProfileInformation/ProfileInformation";
 
 import DotPuzzle from "./Puzzles/DotPuzzle";
 
-import MockUp from "./ControlPanel/MockUp";
+import ControlPanel from "./ControlPanel/ControlPanel";
+
 import FooterPage from "./FooterComponent/Footer";
 import Header2 from "./HeaderComponent/Header2";
+
+import EndScreen from "./EndComponent/EndScreen";
+
 export default class App extends Component {
   constructor() {
     super();
@@ -58,41 +62,48 @@ export default class App extends Component {
   render() {
     switch (this.state.progress) {
       case "5":
-        return <>End Screen</>;
+        return (
+          <>
+            <EndScreen />
+          </>
+        );
       case "4":
         return (
           <>
-            <MockUp />
+            <ControlPanel />
           </>
         );
       case "3":
         return (
           <>
-            <Router>
-              <Header2 />
-              <Switch>
-                <Route path="/Qin3M3n09nDhJHU2nuhdD" component={Profile} />
-                <Route
-                  path="/3a(3kJe28nkhdh703hkh3mpl0ye"
-                  component={Integrety}
-                />
-                <Route
-                  name="Books"
-                  path="/jnD3ejLpEnmZW9789Hnl83lDmHQE"
-                  component={NiceReads}
-                />
-                <Route
-                  name="prePanel"
-                  path="/JSn6yFsTxCRne2uOYCtt"
-                  component={PrePannel}
-                />
-                <Route
-                  name="story"
-                  path="/fdsHD8H3jDeqN082"
-                  component={ProfileInformation}
-                />
-              </Switch>
-            </Router>
+            <div class="afterlogin">
+              <Router>
+                <Header2 />
+                <Switch>
+                  <Route exact path="/" component={Profile} />
+                  <Route
+                    path="/3a(3kJe28nkhdh703hkh3mpl0ye"
+                    component={Integrity}
+                  />
+                  <Route
+                    name="Books"
+                    path="/jnD3ejLpEnmZW9789Hnl83lDmHQE"
+                    component={NiceReads}
+                  />
+                  <Route
+                    name="prePanel"
+                    path="/JSn6yFsTxCRne2uOYCtt"
+                    component={PrePanel}
+                  />
+                  <Route
+                    name="story"
+                    path="/fdsHD8H3jDeqN082"
+                    component={ProfileInformation}
+                  />
+                </Switch>
+              </Router>
+              <FooterPage />
+            </div>
           </>
         );
       case "2":
@@ -113,13 +124,13 @@ export default class App extends Component {
               <Chatbot />
               <Switch>
                 <Route name="home" exact path="/" component={Homepage} />
+                <Route name="quantum" path="/quantum" component={Quantum} />
                 <Route name="products" path="/products" component={Products} />
                 <Route name="founder" path="/founder" component={Founder} />
                 <Route name="board" path="/board" component={Board} />
                 <Route name="story" path="/story" component={Story} />
               </Switch>
             </Router>
-            <Profile />
             <FooterPage />
 
             <IntroScene />

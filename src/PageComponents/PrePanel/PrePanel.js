@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Button } from "semantic-ui-react";
 import Progress from "../../Progress";
 
-export default class PrePannel extends Component {
+export default class PrePanel extends Component {
+
   render() {
     return (
       <div class="afterlogin">
@@ -37,7 +38,9 @@ export default class PrePannel extends Component {
                 be investments, lay-offs, timed product launches, etc.
               </li>
             </ul>
-            <Button>To Project Odin</Button>
+            <Button onClick={ () => Progress.updateProgress('4') }>
+              To Project Odin
+            </Button>
           </div>
         </div>
       </div>

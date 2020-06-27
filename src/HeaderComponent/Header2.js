@@ -1,24 +1,14 @@
 import React, { Component } from "react";
-import { Navbar, Nav, NavDropdown, NavItem } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Image, Accordion } from "semantic-ui-react";
+import { Image } from "semantic-ui-react";
 
 import Employee_Icon from "../GFX/employee.svg";
 import Escudero from "../GFX/Escudero.JPG";
 export default class Header2 extends Component {
   state = { activeIndex: 0 };
 
-  handleClick = (e, titleProps) => {
-    const { index } = titleProps;
-    const { activeIndex } = this.state;
-    const newIndex = activeIndex === index ? -1 : index;
-
-    this.setState({ activeIndex: newIndex });
-  };
-
   render() {
-    const { activeIndex } = this.state;
-
     return (
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Brand as={Link} to="/"></Navbar.Brand>
@@ -30,7 +20,7 @@ export default class Header2 extends Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={Link} to="/Qin3M3n09nDhJHU2nuhdD">
+            <Nav.Link as={Link} to="/">
               Employee Home
             </Nav.Link>
             <Nav.Link
@@ -44,7 +34,7 @@ export default class Header2 extends Component {
               Nice Reads
             </Nav.Link>
             <Nav.Link as={Link} to="/JSn6yFsTxCRne2uOYCtt">
-              Panel
+              Project Odin
             </Nav.Link>
           </Nav>
           <Nav>
